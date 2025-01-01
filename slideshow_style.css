@@ -1,0 +1,79 @@
+/* Slideshow Container */
+#slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 893px; /* Keeps it from stretching too wide */
+    height: 500px; /* Fixed height to keep consistent ratio */
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    background-color: #333; /* Dark background for the container */
+    border-radius: 20px; /* Rounded corners for the slideshow container */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5); /* Shadow around the container */
+}
+
+/* Individual Slides */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Ensures the height is always 100% of the container */
+    object-fit: contain; /* Ensures the image fits within the container without cropping */
+    opacity: 0; /* Hide the image initially */
+    transition: opacity 2s ease-in-out; /* Smooth transition between slides */
+    border-radius: 20px; /* Rounded corners for images */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4); /* Shadow around each image */
+}
+
+/* Active Slide */
+.slide.active {
+    opacity: 1; /* Make the active slide fully visible */
+}
+
+/* Navigation Buttons (Previous and Next) */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: #fff; /* White text for buttons */
+    border: none;
+    padding: 10px 15px; /* Add padding to buttons */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-size: 20px; /* Adjust button text size */
+    z-index: 100; /* Ensure buttons are above the slides */
+    border-radius: 5px; /* Optional rounded corners for navigation buttons */
+    transition: background-color 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+/* Hover Effect for Buttons */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Darken the background on hover */
+}
+
+/* Left Button (Previous) */
+.prev {
+    left: 10px; /* Position on the left side */
+}
+
+/* Right Button (Next) */
+.next {
+    right: 10px; /* Position on the right side */
+}
+
+/* Auto Play Indicator (Optional) */
+#slideshow:after {
+    content: 'Auto-playing slideshow...'; /* Inform users */
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
